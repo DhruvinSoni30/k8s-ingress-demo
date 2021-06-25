@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-resource-1
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: website.dhruvinsoni.com
+    http:
+      paths:
+      # Default Backend (Root /)
+      - backend:
+          serviceName: nginx
+          servicePort: 80
+  - host: springapp.dhruvinsoni.com
+    http:
+      paths:
+      - backend:
+          serviceName: springboot
+          servicePort: 80	
